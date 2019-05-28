@@ -1,4 +1,4 @@
-# JSON Viewer Problem
+# JSON Viewer Refactoring Problem
 
 ## Example Usage
 * ```prettyjson -l response.json```
