@@ -30,19 +30,6 @@ public class Main {
       System.exit(1);
     }
 
-    // This gives what remains after parsing of the options
-    // In our case, filename is a non-optional command,
-    // hence must be passed on the cmdline.  If it is not
-    // passed, below argList would be empty.
-    final List<String> argList = line.getArgList();
-    if (args.length == 0 && argList.isEmpty()) {
-      HelpFormatter formatter = new HelpFormatter();
-      final PrintWriter writer = new PrintWriter(System.out);
-      formatter.printUsage(writer, 80, "prettyjson <file>", options);
-      writer.flush();
-      System.exit(0);
-    }
-
     if (line.hasOption('h')) {
       HelpFormatter formatter = new HelpFormatter();
       formatter.printHelp("prettyjson <file>", "Pretty JSON formatter", options, "", true);
@@ -53,6 +40,18 @@ public class Main {
       HelpFormatter formatter = new HelpFormatter();
       final PrintWriter writer = new PrintWriter(System.out);
       formatter.printWrapped(writer, 100, "Name: prettyjson\nVersion: 1.0-SNAPSHOT");
+      writer.flush();
+      System.exit(0);
+    }
+    // This gives what remains after parsing of the options
+    // In our case, filename is a non-optional command,
+    // hence must be passed on the cmdline.  If it is not
+    // passed, below argList would be empty.
+    final List<String> argList = line.getArgList();
+    if (args.length == 0 || argList.isEmpty()) {
+      HelpFormatter formatter = new HelpFormatter();
+      final PrintWriter writer = new PrintWriter(System.out);
+      formatter.printUsage(writer, 80, "prettyjson <file>", options);
       writer.flush();
       System.exit(0);
     }
