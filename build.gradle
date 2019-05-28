@@ -1,0 +1,58 @@
+plugins {
+  id 'java'
+  id 'eclipse'
+  id 'idea'
+  id 'application'
+}
+
+eclipse {
+  classpath {
+    downloadJavadoc = true
+    downloadSources = true
+  }
+}
+
+idea {
+  module {
+    downloadJavadoc = true
+    downloadSources = true
+  }
+}
+
+repositories {
+  jcenter()
+  mavenCentral()
+}
+
+defaultTasks 'clean', 'test', 'build', 'startScripts'
+
+archivesBaseName = 'com.tsys.viewer'
+version = '1.0-SNAPSHOT'
+
+// Define the main class for the application
+mainClassName = 'com.tsys.viewer.Main'
+ext.junit4Version         = '4.12'
+ext.mockitoVersion        = '2.20.0'
+
+                              
+dependencies {
+  // This dependency is found on compile classpath of this component and consumers.
+  compile('org.json:json:20180130')
+  // An easy syntax to print messages with a colored font/background. 
+  // Also includes ∞ levels of debug logging.
+  compile ('com.diogonunes:JCDP:2.0.3.1')
+  // Commons CLI
+  compile ('commons-cli:commons-cli:1.4')
+
+  testCompile("junit:junit:${junit4Version}")
+  testCompile ("org.mockito:mockito-core:${mockitoVersion}")
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+artifacts {
+	archives sourcesJar
+}

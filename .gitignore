@@ -1,0 +1,15 @@
+.DS_Store
+prettyjson-1.0-SNAPSHOT/
+build
+.gradle
+/bin
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.idea
+target
+out
+.settings
+*.log*

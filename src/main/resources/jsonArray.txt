@@ -1,0 +1,1 @@
+[{"ticker":"AAPL","name":"Apple Inc.","low":50.35,"high":60.45,"tickMillis":{"low":2000,"high":3000},"price":53.2},{"ticker":"GOOG","name":"Google Inc.","low":90.67,"high":120.34,"tickMillis":{"low":1000,"high":2000},"price":97.28}]
