@@ -2,9 +2,11 @@
 
 ## Example Usage
 * ```prettyjson -l response.json```
-<center>
-  <img src="pretty-json.png" alt="Console Output" width="200" height="350"/>
-</center>
+
+  <center>
+    <img src="pretty-json.png" alt="Console Output" width="200" height="350"/>
+  </center>
+
 * Default behavior is to print pretty JSON which is indented and colorized.
 * General Command ```prettyjson [-r] [-l] [-h] [-v] [-nc] <file>```
 * Options:
